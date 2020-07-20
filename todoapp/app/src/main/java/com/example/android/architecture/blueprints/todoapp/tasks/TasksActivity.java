@@ -36,6 +36,20 @@ import com.example.android.architecture.blueprints.todoapp.util.EspressoIdlingRe
 import com.example.android.architecture.blueprints.todoapp.util.LogUtil;
 import com.google.android.material.navigation.NavigationView;
 
+/**
+ * 入口
+ * MVP架构，
+ * M：除去这个外的所有。
+ * V：每个fragment
+ * P：后缀为persenter的
+ *
+ * activity基本上是一种连接，
+ * IP 为只在IV回调的接口
+ * 整个view层，都只在P的控制。
+ *
+ * 结构上来说，应该是比较清晰的。但是确实也不是特别容易理解。
+ *
+ */
 public class TasksActivity extends AppCompatActivity {
 
     private static final String CURRENT_FILTERING_KEY = "CURRENT_FILTERING_KEY";

@@ -53,6 +53,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * Display a grid of {@link Task}s. User can choose to view all, active or completed tasks.
  */
+
+/**
+ * 所有交互返回数据，均通过Presenter回调处理
+ * 该fragment功能：界面固定，界面显示，
+ * 显示的数据和互动的数据，均通过Presenter处理
+ */
 public class TasksFragment extends Fragment implements TasksContract.View {
 
     private TasksContract.Presenter mPresenter;
@@ -312,7 +318,7 @@ public class TasksFragment extends Fragment implements TasksContract.View {
     @Override
     public void showAddTask() {
         Intent intent = new Intent(getContext(), AddEditTaskActivity.class);
-        startActivityForResult(intent, AddEditTaskActivity.REQUEST_ADD_TASK);
+        startActivityForResult(intent, AddEditTaskActivity.REQUEST_ADD_TASK);// 这个地方，其实是不是不是view做比较好。属于逻辑
     }
 
     @Override
