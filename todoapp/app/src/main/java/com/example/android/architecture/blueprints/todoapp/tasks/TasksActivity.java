@@ -49,6 +49,27 @@ import com.google.android.material.navigation.NavigationView;
  *
  * 结构上来说，应该是比较清晰的。但是确实也不是特别容易理解。
  *
+ *
+ * 修改：
+ * MVP架构
+ * M:基本是指TasksRepository，进行的一些列数据处理均通过这个
+ * V：每个fragment
+ * P：后缀为persenter的
+ * 其他：静态工具方法，当成以上每个的一部分。或者分发处理。
+ *
+ * 结构中最不清晰的一点是，各种activity的入口太乱了。
+ *
+ * 懂了之后，感觉结构真的很柔顺，并且增加相应的功能，只要修改对应的一些MVP即可，
+ * 但是由于model层与各方各面都耦合，所以，如果有需要修改model层，可能会造成比较大的麻烦，
+ * 让人感觉model层其实是连接所有的核心，
+ * 第二点是，连接各个MVP结构的入口可能会造成混乱。
+ * 第三点是：大量的PV连接代码。
+ * 但是解耦了view。
+ * 并且方便单元测试。
+ * 为了兼顾大框架，导致需要大量的结构代码。
+ *
+ * 大项目可以使用，或成为主流可以使用。
+ *
  */
 public class TasksActivity extends AppCompatActivity {
 
@@ -103,7 +124,6 @@ public class TasksActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putSerializable(CURRENT_FILTERING_KEY, mTasksPresenter.getFiltering());
-
         super.onSaveInstanceState(outState);
     }
 

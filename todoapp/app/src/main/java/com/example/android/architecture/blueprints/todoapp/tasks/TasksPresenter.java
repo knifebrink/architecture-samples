@@ -64,6 +64,9 @@ public class TasksPresenter implements TasksContract.Presenter {
         }
     }
 
+    /**
+     * 加载数据并显示。
+     */
     @Override
     public void loadTasks(boolean forceUpdate) {
         // Simplification for sample: a network reload will be forced on first load.
@@ -85,8 +88,8 @@ public class TasksPresenter implements TasksContract.Presenter {
 
         // The network request might be handled in a different thread so make sure Espresso knows
         // that the app is busy until the response is handled.
-        EspressoIdlingResource.increment(); // App is busy until further notice
-
+        EspressoIdlingResource.increment(); // App is busy until further notice// 先无视
+        // 请求数据，使用钩子返回数据。
         mTasksRepository.getTasks(new TasksDataSource.LoadTasksCallback() {
             @Override
             public void onTasksLoaded(List<Task> tasks) {

@@ -17,8 +17,7 @@
 package com.example.android.architecture.blueprints.todoapp.taskdetail;
 
 import android.os.Bundle;
-import androidx.annotation.VisibleForTesting;
-import androidx.test.espresso.IdlingResource;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -29,6 +28,14 @@ import com.example.android.architecture.blueprints.todoapp.util.ActivityUtils;
 
 /**
  * Displays task details screen.
+ * 最优秀的是保持了高度的一致性，每个东西的职责非常清晰。
+ * Activity连接p和f，简单的初始化
+ * f进行界面初始化，得到p的对象，进行回调。
+ * p连接model，对f的回调，进行对f的界面修改。
+ *
+ * 基本每个都有很强的一致性。
+ *
+ * 然后不同的Activity或P，均通过model（taskR..）进行数据与信息共享，而model又自有逻辑。仅需要一定的初始化。
  */
 public class TaskDetailActivity extends AppCompatActivity {
 

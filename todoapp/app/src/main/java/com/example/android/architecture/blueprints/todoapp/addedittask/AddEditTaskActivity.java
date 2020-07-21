@@ -32,6 +32,9 @@ import com.example.android.architecture.blueprints.todoapp.util.EspressoIdlingRe
 
 /**
  * Displays an add or edit task screen.
+ * 看英文，
+ * 依旧是连接mAddEditTaskPresenter和AddEditTaskFragment。
+ * 基本上一致的结构，presenter业务逻辑，并与TasksRepository进行对接，Fragment继续做显示端，并与其他界面连接。
  */
 public class AddEditTaskActivity extends AppCompatActivity {
 

@@ -58,6 +58,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * 所有交互返回数据，均通过Presenter回调处理
  * 该fragment功能：界面固定，界面显示，
  * 显示的数据和互动的数据，均通过Presenter处理
+ *
+ * fragment本身进行初始界面，整体界面初始化。
+ * Presenter对fragment显示的数据进行修改，显示控制。
  */
 public class TasksFragment extends Fragment implements TasksContract.View {
 
@@ -91,10 +94,11 @@ public class TasksFragment extends Fragment implements TasksContract.View {
         mListAdapter = new TasksAdapter(new ArrayList<Task>(0), mItemListener);
     }
 
+
     @Override
     public void onResume() {
         super.onResume();
-        mPresenter.start();
+        mPresenter.start();// 通知Presenter进行初始化，并渲染数据。
     }
 
     @Override
@@ -104,7 +108,7 @@ public class TasksFragment extends Fragment implements TasksContract.View {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mPresenter.result(requestCode, resultCode);
+        mPresenter.result(requestCode, resultCode);// 通知Presenter进行处理
     }
 
     @Nullable

@@ -16,8 +16,6 @@
 
 package com.example.android.architecture.blueprints.todoapp.data.source;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -28,6 +26,8 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Concrete implementation to load tasks from the data sources into a cache.
@@ -91,6 +91,10 @@ public class TasksRepository implements TasksDataSource {
      * <p>
      * Note: {@link LoadTasksCallback#onDataNotAvailable()} is fired if all data sources fail to
      * get the data.
+     */
+    /**
+     * 真的是非常优秀的结构，大部分通过钩子进行处理，并且抽离数据的方式抽离得非常好，不能再好了。
+     * @param callback
      */
     @Override
     public void getTasks(@NonNull final LoadTasksCallback callback) {
