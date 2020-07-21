@@ -9,6 +9,8 @@
 
 ### MVP
 
+
+
 #### 模块细节
 
 1. TasksActivity：连接TasksPresenter和TasksFragment，连接TaskPresenter和TasksRepository()，TasksFragment监听回调TaskPresenter，TaskPresenter逻辑更新UI调用TasksFragment，TasksFragment通过TasksRepository进行数据获取。TasksFragment启动AddEditTaskActivity。
@@ -17,7 +19,9 @@
 3. TaskDetailActivity：依然结构清晰。返回，TasksActivity->StatisticsActivity
 4. StatisticsActivity：数据分析，依然一样的结构。
 
+#### MVP-RXJAVA
 
+* 基本上是以上模块细节，然后使用rxjava优化model和Presenter的连接。
 
 
 
