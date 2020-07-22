@@ -96,6 +96,7 @@ final class TasksPresenter implements TasksContract.Presenter {
                 mTasksView.setLoadingIndicator(true);
             }
         }
+
         if (forceUpdate) {
             mTasksRepository.refreshTasks();
         }
